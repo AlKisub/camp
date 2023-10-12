@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>События</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Тип</th>
+                <th>Дата события</th>
+                <th>Дата создания</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        {% for event in events_list %}
+            <tr>
+                <td><div><a href="{% url 'events_event' event_id=event.pk %}">{{ event.name }}</a></div></td>
+                <td><div>{{ event.type }}</div></td>
+                <td><div>{{ event.event_date }}</div></td>
+                <td><div>{{ event.create_date }}</div></td>
+                <td><div>{{ event.author }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
+
+

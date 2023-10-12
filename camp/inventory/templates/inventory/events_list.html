@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Инвентарь</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Класс</th>
+                <th>Тип</th>
+                <th>Название</th>
+                <th>Вес</th>
+                <th>Цена</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        {% for event in events_list %}
+            <tr>
+                <td><img class="image-thumbail" src="{{ event.photo.url }}" alt="Изображение не найдено" width="100" height="100"></td>
+                <td><div>{{ event.product_class }}</div></td>
+                <td><div>{{ event.type }}</div></td>
+                <td><div>{{ event.name }}</div></td>
+                <td><div>{{ event.weight }}</div></td>
+                <td><div>{{ event.price }}</div></td>
+                <td><div>{{ event.author }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
+
+

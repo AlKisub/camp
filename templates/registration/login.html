@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="{% url 'login' %}" class="login">
+  {% csrf_token %}
+  <input required type="text" class="form-control" placeholder="Логин"  name="username" id="username" style="margin-top: 10px; width: 300px">
+  <input required type="password" class="form-control" placeholder="Пароль"  name="password" id="password" style="margin-top: 10px; width: 300px">
+  <input type="submit" class="btn btn-outline-primary" value="Войти" style="margin-top: 10px">
+</form>
+
+{% endblock %}

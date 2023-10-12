@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<h1>Событие</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Тип</th>
+                <th>Дата события</th>
+                <th>Дата создания</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        {% for event in events_list %}
+            <tr>
+                <td><div>{{ event.name }}</div></td>
+                <td><div>{{ event.type }}</div></td>
+                <td><div>{{ event.event_date }}</div></td>
+                <td><div>{{ event.create_date }}</div></td>
+                <td><div>{{ event.author }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<h1>Инвентарь</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Класс</th>
+                <th>Тип</th>
+                <th>Название</th>
+                <th>Вес</th>
+                <th>Цена</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        {% for tool in inventory %}
+            <tr>
+                <td><img class="image-thumbail" src="{{ tool.inventary_event.photo.url }}" alt="Изображение не найдено" width="100" height="100"></td>
+                <td><div>{{ tool.inventary_event.product_class }}</div></td>
+                <td><div>{{ tool.inventary_event.type }}</div></td>
+                <td><div>{{ tool.inventary_event.name }}</div></td>
+                <td><div>{{ tool.inventary_event.weight }}</div></td>
+                <td><div>{{ tool.inventary_event.price }}</div></td>
+                <td><div>{{ tool.inventary_event.author }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<h1>Продукты</h1>
+    <table class="table">
+        <thead>
+            <tr>
+<!--                <th></th>-->
+                <th>Еда</th>
+                <th>Наименование</th>
+                <th>Продавец</th>
+                <th>Производитель</th>
+                <th>Вес</th>
+                <th>Цена</th>
+                <th>Количество</th>
+                <th>Сумма</th>
+                <th>Автор</th>
+                <th>Дата создания</th>
+            </tr>
+        </thead>
+        {% for product in products %}
+            <tr>
+                <td><img class="image-thumbail" src="{{ product.product_event.food.photo.url }}" alt="Изображение не найдено" width="100" height="100"></td>
+<!--                <td><div>{{ event.food.photo }}</div></td>-->
+                <td><div>{{ product.product_event.name }}</div></td>
+                <td><div>{{ product.product_event.retailer.name }}</div></td>
+                <td><div>{{ product.product_event.supplier.name }}</div></td>
+                <td><div>{{ product.product_event.weight }}</div></td>
+                <td><div>{{ product.product_event.price }}</div></td>
+                <td><div>{{ product.quantity }}</div></td>
+                <td><div>{{ product.total }}</div></td>
+                <td><div>{{ product.product_event.author }}</div></td>
+                <td><div>{{ product.product_event.create_date }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+<h1>Автомобили</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Марка/модель</th>
+                <th>Класс</th>
+                <th>Тип</th>
+                <th>Объём багажника</th>
+                <th>Номер</th>
+                <th>Автор</th>
+            </tr>
+        </thead>
+        {% for auto in autos %}
+            <tr>
+                <td><img class="image-thumbail" src="{{ auto.auto_event.photo.url }}" alt="Изображение не найдено" width="100" height="100"></td>
+                <td><div>{{ auto.auto_event.name }}</div></td>
+                <td><div>{{ auto.auto_event.product_class }}</div></td>
+                <td><div>{{ auto.auto_event.type }}</div></td>
+                <td><div>{{ auto.auto_event.trunk_volume }}</div></td>
+                <td><div>{{ auto.auto_event.state_number }}</div></td>
+                <td><div>{{ auto.auto_event.author }}</div></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+
